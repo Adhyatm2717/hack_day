@@ -183,6 +183,8 @@ export async function acceptBooking(id: string): Promise<Booking> {
 export async function declineBooking(id: string): Promise<Booking> {
   const idx = MOCK_BOOKINGS.findIndex((b) => b.id === id);
   if (idx === -1) throw new Error(`Booking not found: ${id}`);
+  if (MOCK_BOOKINGS[idx].status !== "requested")
+    throw new Error(`Only requested bookings can be declined (current: ${MOCK_BOOKINGS[idx].status})`);
   MOCK_BOOKINGS[idx] = { ...MOCK_BOOKINGS[idx], status: "declined", updated_at: new Date().toISOString() };
   return { ...MOCK_BOOKINGS[idx] };
 }
@@ -198,10 +200,18 @@ export async function cancelBooking(id: string): Promise<Booking> {
   return { ...MOCK_BOOKINGS[idx] };
 }
 
-/** Host/Rider: mark session as actively charging. */
+/** Host: mark session as actively charging. */
 export async function startSession(id: string): Promise<Booking> {
   const idx = MOCK_BOOKINGS.findIndex((b) => b.id === id);
   if (idx === -1) throw new Error(`Booking not found: ${id}`);
+  const candidate = MOCK_BOOKINGS[idx];
+  const recentCompletion = MOCK_BOOKINGS.find((booking) =>
+    booking.spot_id === candidate.spot_id && booking.status === "completed" && booking.ended_at &&
+    Date.now() - new Date(booking.ended_at).getTime() < 15 * 60 * 1000
+  );
+  if (recentCompletion) throw new Error("The 15-minute gap rule blocks this booking. Please wait until 15 minutes after the previous session ends.");
+  if (MOCK_BOOKINGS[idx].status !== "accepted")
+    throw new Error(`Only accepted bookings can start charging (current: ${MOCK_BOOKINGS[idx].status})`);
   MOCK_BOOKINGS[idx] = {
     ...MOCK_BOOKINGS[idx],
     status:     "charging",
@@ -235,12 +245,14 @@ export async function endSession(id: string): Promise<Booking> {
     throw new Error("Session is not currently charging");
 
   const progress = await getSessionProgress(id);
+  // amount_inr = kWh × price (mock: ₹12/kWh), consistent with SQL end_session.
+  // The 10% platform fee is recorded in payments; amount_inr is the gross charge.
   MOCK_BOOKINGS[idx] = {
     ...MOCK_BOOKINGS[idx],
     status:     "completed",
     ended_at:   new Date().toISOString(),
     kwh_used:   progress.kwhUsed,
-    amount_inr: progress.costInr,
+    amount_inr: Math.round(progress.costInr * 100) / 100,
     updated_at: new Date().toISOString(),
   };
   return { ...MOCK_BOOKINGS[idx] };

@@ -1,66 +1,50 @@
-// app/(host)/layout.tsx
-// Placeholder shell for all Host mode screens.
-// Person 3 owns this file — replace the header internals as needed.
-// Do NOT change the route group name or the ModeProvider import.
+// app/(host)/layout.tsx — Host mode shell
+// Person 3 owns this file.
 
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Home } from "lucide-react";
+import { Bell } from "lucide-react";
 import { ModeProvider } from "@/lib/mode-context";
-import { ModeSwitcher } from "@/components/chargemate";
+import { HostSidebar } from "@/components/layout/host-sidebar";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Host Dashboard — ChargeMate",
-    template: "%s | Host · ChargeMate",
-  },
+  title: { default: "Host Dashboard — ChargeMate", template: "%s | Host · ChargeMate" },
 };
 
 export default function HostLayout({ children }: { children: React.ReactNode }) {
   return (
     <ModeProvider defaultMode="host">
-      <div className="min-h-screen bg-background flex flex-col">
+      <div className="min-h-screen bg-background">
+        <HostSidebar />
 
-        {/* ── Header — Person 3: replace internals, keep outer shell ── */}
-        <header
-          id="host-header"
-          className="sticky top-0 z-40 bg-forest border-b border-forest/80"
-        >
-          <div className="max-w-screen-md mx-auto px-gutter h-14 flex items-center justify-between gap-4">
-            {/* Logo / wordmark */}
-            <Link
-              href="/host"
-              className="flex items-center gap-2 font-heading text-headline-sm text-forest-foreground"
-              aria-label="ChargeMate Host Dashboard"
-            >
-              <Home className="size-5 text-forest-foreground/80" aria-hidden />
-              ChargeMate Host
-            </Link>
+        {/* Content area — offset by sidebar width */}
+        <div className="pl-64">
+          {/* Sticky top bar */}
+          <header
+            id="host-header"
+            className="sticky top-0 z-40 h-16 bg-background/95 backdrop-blur-md border-b border-border px-gutter flex items-center justify-between"
+          >
+            <div className="flex items-center gap-sm">
+              <span className="font-heading text-label-md text-foreground">
+                12th Main, HAL 2nd Stage, Indiranagar
+              </span>
+              <span className="px-xs py-0.5 rounded bg-host-fixed text-forest font-heading text-label-sm uppercase">
+                Socket Online
+              </span>
+            </div>
+            <div className="flex items-center gap-md">
+              <button
+                aria-label="Notifications"
+                className="relative p-sm rounded-full bg-recessed text-muted-foreground hover:text-foreground transition-colors"
+                type="button"
+              >
+                <Bell className="size-5" />
+                <span className="absolute top-1 right-1 size-2.5 rounded-full bg-charge ring-2 ring-background" />
+              </button>
+            </div>
+          </header>
 
-            {/* Mode switcher — on dark bg, inherits the same component */}
-            <ModeSwitcher className="border-forest-foreground/20" />
-          </div>
-        </header>
-
-        {/* ── Page content ── */}
-        <main id="host-main" className="flex-1">
-          {children}
-        </main>
-
-        {/* ── Bottom navigation — Person 3: fill this in ── */}
-        <nav
-          id="host-bottom-nav"
-          aria-label="Host navigation"
-          className="sticky bottom-0 z-40 bg-card border-t border-border"
-        >
-          <div className="max-w-screen-md mx-auto px-gutter h-16 flex items-center justify-around gap-2">
-            {/* TODO Person 3: Dashboard | Requests | Spot | Earnings | Profile tabs */}
-            <span className="font-body text-body-sm text-muted-foreground italic">
-              Nav — Person 3
-            </span>
-          </div>
-        </nav>
-
+          <main id="host-main">{children}</main>
+        </div>
       </div>
     </ModeProvider>
   );
