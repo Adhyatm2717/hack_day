@@ -7,3 +7,4 @@ export * from "./verified-stamp";
 export * from "./stat-card";
 export * from "./mode-switcher";
 export * from "./telemetry-card";
+export * from "./revenue-chart";
