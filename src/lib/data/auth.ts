@@ -21,37 +21,37 @@ let currentSession: AuthSession | null = null;
 // Seed profiles (shared with profile.ts via constants)
 const PROFILES: Profile[] = [
   {
-    id:          MOCK_HOST_ID,
-    full_name:   "Ramesh Verma",
-    phone:       "+919876543210",
-    avatar_url:  "https://i.pravatar.cc/150?u=ramesh-verma",
-    is_rider:    false,
-    is_host:     true,
+    id: MOCK_HOST_ID,
+    full_name: "Ramesh Verma",
+    phone: "+919876543210",
+    avatar_url: "https://i.pravatar.cc/150?u=ramesh-verma",
+    is_rider: false,
+    is_host: true,
     active_mode: "host",
-    created_at:  "2026-05-01T10:00:00.000Z",
-    updated_at:  "2026-10-20T08:00:00.000Z",
+    created_at: "2026-05-01T10:00:00.000Z",
+    updated_at: "2026-10-20T08:00:00.000Z",
   },
   {
-    id:          MOCK_RIDER_ID,
-    full_name:   "Pooja Hegde",
-    phone:       "+919823456789",
-    avatar_url:  "https://i.pravatar.cc/150?u=pooja-hegde",
-    is_rider:    true,
-    is_host:     false,
+    id: MOCK_RIDER_ID,
+    full_name: "Pooja Hegde",
+    phone: "+919823456789",
+    avatar_url: "https://i.pravatar.cc/150?u=pooja-hegde",
+    is_rider: true,
+    is_host: false,
     active_mode: "charge",
-    created_at:  "2026-06-10T09:00:00.000Z",
-    updated_at:  "2026-10-22T12:00:00.000Z",
+    created_at: "2026-06-10T09:00:00.000Z",
+    updated_at: "2026-10-22T12:00:00.000Z",
   },
 ];
 
 const HOST_PROFILES: HostProfile[] = [
   {
-    user_id:             MOCK_HOST_ID,
+    user_id: MOCK_HOST_ID,
     verification_status: "verified",
-    id_doc_url:          "https://example.com/mock-id-doc.jpg",
-    bank_upi:            "ramesh@upi",
-    created_at:          "2026-05-01T10:00:00.000Z",
-    updated_at:          "2026-10-20T08:00:00.000Z",
+    id_doc_url: "https://example.com/mock-id-doc.jpg",
+    bank_upi: "ramesh@upi",
+    created_at: "2026-05-01T10:00:00.000Z",
+    updated_at: "2026-10-20T08:00:00.000Z",
   },
 ];
 
@@ -63,6 +63,7 @@ const VEHICLES: Vehicle[] = [];
  * Step 1: Send OTP to phone.
  * In mock mode always succeeds. Real impl would call Supabase Auth.
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function sendOtp(_phone: string): Promise<{ success: boolean }> {
   // Simulate network delay
   await new Promise((r) => setTimeout(r, 600));
@@ -96,15 +97,15 @@ export async function verifyOtp(
   // New user — create a stub profile (will be completed in onboarding)
   const newId = `user-${Date.now()}`;
   const stub: Profile = {
-    id:          newId,
-    full_name:   "",
+    id: newId,
+    full_name: "",
     phone,
-    avatar_url:  null,
-    is_rider:    false,
-    is_host:     false,
+    avatar_url: null,
+    is_rider: false,
+    is_host: false,
     active_mode: "charge",
-    created_at:  new Date().toISOString(),
-    updated_at:  new Date().toISOString(),
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
   PROFILES.push(stub);
   currentSession = { userId: newId, phone };
@@ -132,9 +133,9 @@ export function getSession(): AuthSession | null {
 // ── Onboarding ────────────────────────────────────────────────────────────────
 
 export type OnboardingPayload = {
-  fullName:  string;
-  role:      "rider" | "host";           // primary role picked at onboarding
-  vehicle?:  Omit<VehiclePayload, never>; // required for riders
+  fullName: string;
+  role: "rider" | "host";           // primary role picked at onboarding
+  vehicle?: Omit<VehiclePayload, never>; // required for riders
 };
 
 /**
@@ -152,18 +153,18 @@ export async function completeOnboarding(
 
   PROFILES[idx] = {
     ...PROFILES[idx],
-    full_name:   payload.fullName,
-    is_rider:    payload.role === "rider",
-    is_host:     payload.role === "host",
+    full_name: payload.fullName,
+    is_rider: payload.role === "rider",
+    is_host: payload.role === "host",
     active_mode: payload.role === "rider" ? "charge" : "host",
-    updated_at:  new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
 
   if (payload.role === "rider" && payload.vehicle) {
     VEHICLES.push({
       ...payload.vehicle,
-      id:         `vehicle-${Date.now()}`,
-      owner_id:   userId,
+      id: `vehicle-${Date.now()}`,
+      owner_id: userId,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     });
@@ -200,12 +201,12 @@ export async function submitHostOnboarding(
   }
 
   const hostProfile: HostProfile = {
-    user_id:             userId,
+    user_id: userId,
     verification_status: "pending",
-    id_doc_url:          `https://mock-storage.chargemate.in/${userId}/id-doc.jpg`,
-    bank_upi:            null,
-    created_at:          new Date().toISOString(),
-    updated_at:          new Date().toISOString(),
+    id_doc_url: `https://mock-storage.chargemate.in/${userId}/id-doc.jpg`,
+    bank_upi: null,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
   HOST_PROFILES.push(hostProfile);
 
@@ -214,7 +215,7 @@ export async function submitHostOnboarding(
   if (idx !== -1) {
     PROFILES[idx] = {
       ...PROFILES[idx],
-      is_host:    true,
+      is_host: true,
       active_mode: "host",
       updated_at: new Date().toISOString(),
     };

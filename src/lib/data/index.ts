@@ -16,7 +16,7 @@
 export { MOCK_HOST_ID, MOCK_RIDER_ID } from "./constants";
 
 // ── Switch ────────────────────────────────────────────────────────────────────
-const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK === "true";
+const _USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK === "true";
 
 // ── Mock implementations ──────────────────────────────────────────────────────
 export * from "./spots";
@@ -69,5 +69,5 @@ export type {
 } from "@/types/db";
 
 export type { GetNearbySpotsParams } from "./spots";
-export type { RequestBookingParams }  from "./bookings";
-export type { SubmitReviewParams }    from "./reviews";
+export type { RequestBookingParams } from "./bookings";
+export type { SubmitReviewParams } from "./reviews";

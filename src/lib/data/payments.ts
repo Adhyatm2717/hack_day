@@ -1,30 +1,29 @@
 import type { Payment, PaymentOrder, WalletBalance } from "@/types/db";
-import { MOCK_RIDER_ID } from "./constants";
 
 // ── Seed data ─────────────────────────────────────────────────────────────────
 
 const MOCK_PAYMENTS: Payment[] = [
   {
-    id:               "payment-001",
-    booking_id:       "booking-002",
-    amount_inr:       73.8,
+    id: "payment-001",
+    booking_id: "booking-002",
+    amount_inr: 73.8,
     platform_fee_inr: 3.69,
-    host_payout_inr:  70.11,
-    status:           "paid",
-    method:           "upi",
-    created_at:       "2026-10-21T15:45:00.000Z",
-    updated_at:       "2026-10-21T15:46:00.000Z",
+    host_payout_inr: 70.11,
+    status: "paid",
+    method: "upi",
+    created_at: "2026-10-21T15:45:00.000Z",
+    updated_at: "2026-10-21T15:46:00.000Z",
   },
   {
-    id:               "payment-002",
-    booking_id:       "booking-003",
-    amount_inr:       122.4,
+    id: "payment-002",
+    booking_id: "booking-003",
+    amount_inr: 122.4,
     platform_fee_inr: 6.12,
-    host_payout_inr:  116.28,
-    status:           "paid",
-    method:           "wallet",
-    created_at:       "2026-10-18T12:00:00.000Z",
-    updated_at:       "2026-10-18T12:01:00.000Z",
+    host_payout_inr: 116.28,
+    status: "paid",
+    method: "wallet",
+    created_at: "2026-10-18T12:00:00.000Z",
+    updated_at: "2026-10-18T12:01:00.000Z",
   },
 ];
 
@@ -39,9 +38,9 @@ let MOCK_WALLET_BALANCE = 250; // INR
 export async function createPayment(bookingId: string): Promise<PaymentOrder> {
   // Mock: always creates an order for ₹150 (the session estimate)
   return {
-    orderId:   `order_mock_${Date.now()}`,
+    orderId: `order_mock_${Date.now()}`,
     amountInr: 150,
-    key:       "rzp_test_mock",
+    key: "rzp_test_mock",
   };
 }
 
@@ -56,7 +55,7 @@ export async function getPayment(bookingId: string): Promise<Payment> {
 export async function getWalletBalance(): Promise<WalletBalance> {
   return {
     balanceInr: MOCK_WALLET_BALANCE,
-    lastTopUp:  "2026-10-10T11:00:00.000Z",
+    lastTopUp: "2026-10-10T11:00:00.000Z",
   };
 }
 
@@ -66,6 +65,6 @@ export async function topUpWallet(amountInr: number): Promise<WalletBalance> {
   MOCK_WALLET_BALANCE += amountInr;
   return {
     balanceInr: MOCK_WALLET_BALANCE,
-    lastTopUp:  new Date().toISOString(),
+    lastTopUp: new Date().toISOString(),
   };
 }
