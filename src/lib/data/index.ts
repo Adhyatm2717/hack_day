@@ -18,26 +18,45 @@ export { MOCK_HOST_ID, MOCK_RIDER_ID } from "./constants";
 // ── Switch ────────────────────────────────────────────────────────────────────
 const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK === "true";
 
-// ── Mock implementations ──────────────────────────────────────────────────────
+// ── Bookings — conditional real/mock ──────────────────────────────────────────
+import * as mockBookings from "./bookings";
+import * as realBookings from "./real/bookings";
+
+export const requestBooking    = USE_MOCK ? mockBookings.requestBooking    : realBookings.requestBooking;
+export const getBooking        = USE_MOCK ? mockBookings.getBooking        : realBookings.getBooking;
+export const getMyBookings     = USE_MOCK ? mockBookings.getMyBookings     : realBookings.getMyBookings;
+export const getIncomingRequests = USE_MOCK ? mockBookings.getIncomingRequests : realBookings.getIncomingRequests;
+export const acceptBooking     = USE_MOCK ? mockBookings.acceptBooking     : realBookings.acceptBooking;
+export const declineBooking    = USE_MOCK ? mockBookings.declineBooking    : realBookings.declineBooking;
+export const cancelBooking     = USE_MOCK ? mockBookings.cancelBooking     : realBookings.cancelBooking;
+export const startSession      = USE_MOCK ? mockBookings.startSession      : realBookings.startSession;
+export const getSessionProgress = USE_MOCK ? mockBookings.getSessionProgress : realBookings.getSessionProgress;
+export const endSession        = USE_MOCK ? mockBookings.endSession        : realBookings.endSession;
+
+// Real-only helpers (no-op stubs in mock mode)
+export const onBookingChange = USE_MOCK
+  ? (_id: string, _handler: (b: import("@/types/db").Booking) => void) => () => {}
+  : realBookings.onBookingChange;
+
+export const onIncomingBookingChanges = USE_MOCK
+  ? (_handler: (b: import("@/types/db").Booking) => void) => () => {}
+  : realBookings.onIncomingBookingChanges;
+
+export const setMeterProvider = USE_MOCK
+  ? (_m: import("./meter-provider").MeterProvider) => {}
+  : realBookings.setMeterProvider;
+
+// ── Other modules — still mock-only barrel exports ────────────────────────────
 export * from "./spots";
-export * from "./bookings";
 export * from "./vehicles";
 export * from "./earnings";
 export * from "./reviews";
 export * from "./profile";
 export * from "./payments";
 
-// ── Future: Real Supabase implementations ────────────────────────────────────
-// When Person 4 implements the real layer:
-//
-//   import * as mockSpots    from "./spots";
-//   import * as realSpots    from "./real/spots";
-//   export const getNearbySpots = USE_MOCK ? mockSpots.getNearbySpots : realSpots.getNearbySpots;
-//   ... (repeat for every function)
-//
-// The barrel export above covers mock-only mode.
-// When adding real implementations, replace the barrel exports with
-// conditional re-exports as shown in the pattern above.
+// ── MeterProvider re-exports ──────────────────────────────────────────────────
+export type { MeterProvider, MeterReading } from "./meter-provider";
+export { SimulatedMeterProvider, simulatedMeter } from "./meter-provider";
 
 // ── Re-export all types so callers only need one import ───────────────────────
 export type {
