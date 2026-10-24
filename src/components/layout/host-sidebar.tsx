@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  LayoutDashboard, Zap, PlugZap, CreditCard,
+  LayoutDashboard, Zap, PlugZap, CreditCard, Star,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ModeSwitcher } from "@/components/chargemate";
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { label: "Live Requests",  href: "/host/requests",   icon: Zap,             badge: true },
   { label: "My Charger & Spot", href: "/host/spot",    icon: PlugZap },
   { label: "Earnings & Payouts", href: "/host/earnings", icon: CreditCard },
+  { label: "Reviews", href: "/host/reviews", icon: Star },
 ];
 
 export function HostSidebar() {

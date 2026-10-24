@@ -202,6 +202,12 @@ export async function cancelBooking(id: string): Promise<Booking> {
 export async function startSession(id: string): Promise<Booking> {
   const idx = MOCK_BOOKINGS.findIndex((b) => b.id === id);
   if (idx === -1) throw new Error(`Booking not found: ${id}`);
+  const candidate = MOCK_BOOKINGS[idx];
+  const recentCompletion = MOCK_BOOKINGS.find((booking) =>
+    booking.spot_id === candidate.spot_id && booking.status === "completed" && booking.ended_at &&
+    Date.now() - new Date(booking.ended_at).getTime() < 15 * 60 * 1000
+  );
+  if (recentCompletion) throw new Error("The 15-minute gap rule blocks this booking. Please wait until 15 minutes after the previous session ends.");
   MOCK_BOOKINGS[idx] = {
     ...MOCK_BOOKINGS[idx],
     status:     "charging",

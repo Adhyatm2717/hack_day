@@ -36,7 +36,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 // ── Ledger row ────────────────────────────────────────────────────────────────
 function LedgerRow({ entry }: { entry: LedgerEntry }) {
   const date = new Date(entry.date);
-  const dateStr = date.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+  const dateStr = date.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
   const timeStr = date.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true });
   const isCredit = entry.type === "credit";
 
@@ -253,6 +253,7 @@ export function EarningsClient() {
   const [reviews, setReviews]   = useState<Review[]>([]);
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState<string | null>(null);
+  const [exportMonth, setExportMonth] = useState("2026-10");
 
   const load = useCallback(async () => {
     try {
@@ -286,6 +287,20 @@ export function EarningsClient() {
   async function handleReply(id: string, text: string) {
     const updated = await replyToReview(id, text);
     setReviews((prev) => prev.map((r) => (r.id === id ? updated : r)));
+  }
+
+  function downloadMonthlyCsv() {
+    const rows = ledger.filter((entry) => {
+      const date = new Date(entry.date);
+      return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}` === exportMonth;
+    });
+    const csvCell = (value: string | number) => `"${String(value).replaceAll('"', '""')}"`;
+    const lines = [["Date", "Description", "Type", "Amount (INR)", "Payout status"], ...rows.map((entry) => [new Date(entry.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }), entry.label, entry.type, entry.amountInr, entry.status])];
+    const blob = new Blob([`\uFEFF${lines.map((line) => line.map(csvCell).join(",")).join("\r\n")}`], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url; anchor.download = `chargemate-ledger-${exportMonth}.csv`; anchor.click();
+    URL.revokeObjectURL(url);
   }
 
   // ── Loading ─────────────────────────────────────────────────────────────────
@@ -395,13 +410,18 @@ export function EarningsClient() {
                 <h2 className="font-heading text-headline-sm text-forest">6-Month Revenue Trend</h2>
                 <p className="font-body text-body-sm text-muted-foreground">May → October 2026</p>
               </div>
+              <div className="flex items-center gap-sm">
+              <label className="sr-only" htmlFor="export-month">Month to export</label>
+              <input id="export-month" type="month" value={exportMonth} onChange={(e) => setExportMonth(e.target.value)} className="px-sm py-xs bg-recessed rounded-lg border border-border font-body text-body-sm" />
               <button
                 type="button"
+                onClick={downloadMonthlyCsv}
                 className="flex items-center gap-1.5 px-sm py-xs bg-recessed rounded-lg font-heading text-label-md text-forest hover:bg-surface-high transition-colors"
               >
                 <Download className="size-4" />
                 Export CSV
               </button>
+              </div>
             </div>
             <RevenueChart data={revenue} />
           </section>

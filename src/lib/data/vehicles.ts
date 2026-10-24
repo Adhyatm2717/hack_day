@@ -59,6 +59,13 @@ export async function getMyVehicles(): Promise<Vehicle[]> {
   return MOCK_VEHICLES.filter((v) => v.owner_id === MOCK_RIDER_ID);
 }
 
+/** Return a vehicle referenced by a booking. */
+export async function getVehicle(id: string): Promise<Vehicle> {
+  const vehicle = MOCK_VEHICLES.find((v) => v.id === id);
+  if (!vehicle) throw new Error(`Vehicle not found: ${id}`);
+  return { ...vehicle };
+}
+
 /** Add a new vehicle for the logged-in rider. */
 export async function addVehicle(data: VehiclePayload): Promise<Vehicle> {
   const vehicle: Vehicle = {
