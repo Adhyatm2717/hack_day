@@ -37,7 +37,7 @@ function connectorToChipType(c: string) {
   }
 }
 
-function starArray(rating: number) {
+function starArray() {
   return Array.from({ length: 5 }, (_, i) => i + 1);
 }
 
@@ -134,7 +134,7 @@ function ReviewCard({ review }: { review: Review }) {
     <div className="bg-card rounded-xl p-4 border border-border space-y-2 shadow-card">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
-          {starArray(review.rating).map((s) => (
+          {starArray().map((s) => (
             <Star
               key={s}
               className={`size-3.5 ${
@@ -183,8 +183,8 @@ function BookingSheet({ spot, vehicles, onClose, onConfirm }: BookingSheetProps)
     setError(null);
     try {
       await onConfirm(vehicleId, batteryPct);
-    } catch (e: any) {
-      setError(e.message ?? "Failed to create booking");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "Failed to create booking");
     } finally {
       setLoading(false);
     }
@@ -481,7 +481,7 @@ export default function SpotDetailPage({ params }: Props) {
               {/* Rating row */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1">
-                  {starArray(5).map((s) => (
+                  {starArray().map((s) => (
                     <Star
                       key={s}
                       className={`size-4 ${
