@@ -3,7 +3,7 @@ import { MOCK_HOST_ID, MOCK_RIDER_ID } from "./constants";
 
 // ── Seed data ─────────────────────────────────────────────────────────────────
 
-let MOCK_PROFILES: Profile[] = [
+const MOCK_PROFILES: Profile[] = [
   {
     id:          MOCK_HOST_ID,
     full_name:   "Ramesh Verma",

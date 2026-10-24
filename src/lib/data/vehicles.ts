@@ -3,7 +3,7 @@ import { MOCK_RIDER_ID } from "./constants";
 
 // ── Seed data ─────────────────────────────────────────────────────────────────
 
-let MOCK_VEHICLES: Vehicle[] = [
+const MOCK_VEHICLES: Vehicle[] = [
   {
     id:          "vehicle-pooja-001",
     owner_id:    MOCK_RIDER_ID,
