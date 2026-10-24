@@ -1,9 +1,9 @@
 import type { Booking, BookingStatus, SessionProgress } from "@/types/db";
-import { MOCK_HOST_ID, MOCK_RIDER_ID } from "./constants";
+import { MOCK_RIDER_ID } from "./constants";
 
 // ── Seed data ─────────────────────────────────────────────────────────────────
 
-let MOCK_BOOKINGS: Booking[] = [
+const MOCK_BOOKINGS: Booking[] = [
   // Active session — rider Pooja at Ramesh's spot
   {
     id:                "booking-001",
@@ -104,6 +104,7 @@ let MOCK_BOOKINGS: Booking[] = [
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function withStatus(status: BookingStatus): Booking {
   return {
     ...MOCK_BOOKINGS[0],

@@ -3,7 +3,7 @@ import { MOCK_HOST_ID, MOCK_RIDER_ID } from "./constants";
 
 // ── Seed data ─────────────────────────────────────────────────────────────────
 
-let MOCK_REVIEWS: Review[] = [
+const MOCK_REVIEWS: Review[] = [
   {
     id:         "review-001",
     booking_id: "booking-006",

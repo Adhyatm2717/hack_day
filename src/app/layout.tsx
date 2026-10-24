@@ -3,6 +3,7 @@ import "./globals.css";
 import { heading, body } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { ModeProvider } from "@/lib/mode-context";
+import { AuthProvider } from "@/lib/auth-context";
 
 export const metadata: Metadata = {
   title: {
@@ -31,9 +32,11 @@ export default function RootLayout({
       style={{ fontFamily: "var(--font-body)" }}
     >
       <body className={cn("bg-background text-foreground antialiased font-body min-h-screen")}>
-        <ModeProvider defaultMode="charge">
-          {children}
-        </ModeProvider>
+        <AuthProvider>
+          <ModeProvider defaultMode="charge">
+            {children}
+          </ModeProvider>
+        </AuthProvider>
       </body>
     </html>
   );
