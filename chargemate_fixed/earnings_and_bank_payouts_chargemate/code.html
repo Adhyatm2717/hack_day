@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed":"#032113","on-secondary":"#ffffff","on-surface":"#181C19","surface-bright":"#F4F1EA","on-error":"#ffffff","surface-container-lowest":"#ffffff","outline-variant":"#D5D0C5","error":"#ba1a1a","surface-variant":"#D5D0C5","outline":"#D5D0C5","on-surface-variant":"#5C635E","surface-container":"#EAE6DC","on-secondary-container":"#531800","on-background":"#181C19","tertiary-container":"#3f2700","on-primary-fixed-variant":"#304d3c","primary-fixed":"#c9ebd4","surface":"#F4F1EA","on-primary-container":"#7b9a86","surface-container-highest":"#D5D0C5","on-secondary-fixed":"#380d00","primary-container":"#143122","surface-dim":"#EAE6DC","surface-container-low":"#EAE6DC","secondary-fixed":"#ffdbce","tertiary":"#231400","on-error-container":"#93000a","tertiary-fixed":"#ffddb3","on-tertiary":"#ffffff","background":"#F4F1EA","error-container":"#ffdad6","on-primary":"#ffffff","surface-container-high":"#E2DDD2","primary-fixed-dim":"#adceb8","on-secondary-fixed-variant":"#802a00","secondary":"#a83900","surface-tint":"#476553","inverse-surface":"#2d312e","on-tertiary-fixed":"#291800","inverse-on-surface":"#eff2ec","secondary-fixed-dim":"#ffb59a","inverse-primary":"#adceb8","on-tertiary-fixed-variant":"#634000","secondary-container":"#fc6117","primary":"#001c0f","on-tertiary-container":"#c78506","tertiary-fixed-dim":"#ffb950"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter-mobile":"0.75rem",gutter:"1.25rem","space-xl":"2.5rem","space-md":"1rem","space-lg":"1.5rem",margin:"2rem","space-xs":"0.25rem","margin-mobile":"1rem","space-sm":"0.5rem"},fontFamily:{"display-lg-mobile":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"],"display-lg":["Space Grotesk"],"headline-md":["Space Grotesk"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Space Grotesk"],"headline-sm":["Space Grotesk"],"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"data-display":["Space Grotesk"],"body-sm":["Plus Jakarta Sans"]},fontSize:{"display-lg-mobile":["36px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-lg-mobile":["26px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg":["48px",{lineHeight:"52px",letterSpacing:"-0.03em",fontWeight:"700"}],"headline-md":["22px",{lineHeight:"28px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"22px",fontWeight:"400"}],"data-display":["28px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["13px",{lineHeight:"18px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-surface-variant z-50 flex flex-col justify-between py-space-lg"><div class="px-space-md"><div class="flex items-center gap-space-sm mb-space-xl px-space-xs"><img alt="ChargeMate Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUOzy8y790qjPYe0kjwGmU_9FlKs1I1_waJgczS4zpCGVVwN3ASRBNTXno5RDKdGR6zH2Yz2Jbq-6V17IGeMOLA_kdPspcEPhx3FhOolxJup9EFC9WnCHNbOJn9O94KHfGAIPTTuYze-9U0hT5G1_Y3z5j59vhe8H1YX5lKOmpgxQ6tPGNtfJJ-cSbS1Ux3tLoUp8L5NMgsKu9bnDxTIHUxBWcCZ9Grj4I88bmoBH36h3mR8vqrPOqcw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-primary leading-none">ChargeMate</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-tertiary-container mt-space-xs">Host Mode</span></div></div><div class="mb-space-lg px-space-xs"><div class="flex items-center gap-space-xs p-space-xs bg-surface-container rounded-full"><button class="flex-1 py-1 rounded-full text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Charge</button><button class="flex-1 py-1 rounded-full text-center font-label-md text-label-md bg-primary-container text-on-primary shadow-sm" type="button">Host</button></div></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-xl shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="host-dashboard" href="#"><span class="material-symbols-outlined text-lg">dashboard</span>Host Dashboard</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="live-requests" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg">sync</span>Live Requests</div><span class="w-2 h-2 rounded-full bg-secondary-container"></span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="my-charger-and-spot" href="#"><span class="material-symbols-outlined text-lg">ev_station</span>My Charger &amp; Spot</a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-all bg-primary-container text-on-primary font-label-lg rounded-xl shadow-sm" data-path="earnings-and-bank-payouts" href="#"><span class="material-symbols-outlined text-lg">payments</span>Earnings &amp; Payouts</a></nav></div><div class="px-space-md border-t border-surface-variant pt-space-md"><div class="p-space-sm rounded-xl bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdcyQkECNKsE27ZRemD-lUdou5M3vhcwsio2V3-4zuNfQJEStsjkORBgcBNwFlqkzF3LIVS-S5Gz9tzGxDIQ3qou-B9OOYGMcQLUVrLuLSzoK1sUYH71eQvmrx0CcFrid5QjHGycNNO1v7ooVA9rqIrkkKxQzDJnxnnPJ7QXJ_VKiltDsF-m5WnvwsgcOt4MqDmcUVUelQuG-vqCkPfAUaAznsi7yVGKbpyS60Q9fTQvHA89Dj_nzMEA"/><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface">Ramesh Verma</span><span class="font-label-sm text-label-sm text-primary-container font-bold">Verified Host</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-base">verified</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-bright/95 backdrop-blur-md border-b border-surface-variant z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-base">pin_drop</span><span class="font-label-md text-label-md text-on-surface">12th Main, HAL 2nd Stage, Indiranagar</span><span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase">Socket Online</span></div><div class="flex items-center gap-space-md"><button aria-label="Notifications" class="relative p-space-sm rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-surface-bright"></span></button><div class="flex items-center gap-space-xs border border-outline-variant px-space-sm py-space-xs rounded-lg bg-surface-container-lowest"><span class="font-headline-sm text-headline-sm text-primary font-bold">₹ 840</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Today</span></div></div></header><main class="relative pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<div class="p-gutter lg:p-margin max-w-7xl mx-auto w-full space-y-space-lg">
+<!-- Header Block with Stamp & Subtle Context -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-primary-container font-label-sm text-label-sm uppercase tracking-wider font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span> Host Settlement Console
+          </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">FY 2026-27 Q2</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Earnings &amp; Bank Payouts</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Live telemetry settlements, domestic energy cost recovery, and direct UPI transfers.</p>
+</div>
+<!-- Verified Host Physical Stamp Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-low shadow-sm transform -rotate-1 self-start md:self-auto">
+<span class="material-symbols-outlined text-primary-container text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary">TDS Compliant Host</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[9px] leading-tight">BESCOM LT-6 AUDITED</span>
+</div>
+</div>
+</div>
+<!-- Top Metric Banner / Hero Card -->
+<div class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary shadow-xl">
+<!-- Organic backdrop gradient accents -->
+<div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-80 h-80 rounded-full bg-primary-fixed/5 blur-2xl pointer-events-none"></div>
+<div class="relative p-space-lg lg:p-space-xl flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="space-y-space-sm max-w-xl">
+<div class="flex items-center gap-2 text-on-primary-container font-label-md text-label-md tracking-wider uppercase">
+<span class="material-symbols-outlined text-base">account_balance_wallet</span>
+<span>Available Payout Balance</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/10 text-primary-fixed font-label-sm text-label-sm font-bold">Live</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg font-bold tracking-tight text-white leading-none">₹3,420.00</span>
+<span class="font-label-md text-label-md text-primary-fixed-dim">INR</span>
+</div>
+<div class="flex items-center gap-2 pt-space-xs text-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-secondary-container text-base">schedule</span>
+<span>Next automatic settlement: <strong class="text-white font-medium">Tomorrow 6:00 AM</strong> directly to registered UPI VPA.</span>
+</div>
+</div>
+<!-- Call to Action Cluster -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm w-full lg:w-auto">
+<button class="relative group flex items-center justify-center gap-space-sm px-space-lg py-3.5 rounded-lg bg-secondary-container text-on-secondary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all active:scale-[0.98]" id="instantPayoutBtn" type="button">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:rotate-12">bolt</span>
+<span>Transfer ₹3,420 to UPI Now</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 bg-black/20 rounded uppercase">IMPS</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs px-space-md py-3.5 rounded-lg bg-white/10 hover:bg-white/15 text-white font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">tune</span>
+<span>Payout Rules</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Sub-strip -->
+<div class="px-space-lg lg:px-space-xl py-space-sm bg-black/20 backdrop-blur-sm flex flex-wrap items-center justify-between gap-space-md font-label-sm text-label-sm text-on-primary-container">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+<span>Gateway: Axis Bank UPI Fastlane (Lat: 180ms)</span>
+</div>
+<div class="flex items-center gap-4">
+<span>Zero Payout Processing Fees</span>
+<span class="text-white/40">•</span>
+<span>Auto-sweep Threshold: ₹500</span>
+</div>
+</div>
+</div>
+<!-- Lifetime Earnings Grid & Bill Offset -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Total Earned Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Total Earned</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed/40 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-lg">currency_rupee</span>
+</div>
+</div>
+<div>
+<div class="font-data-display text-data-display font-bold text-primary">₹38,940.00</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="text-secondary font-bold font-label-sm text-label-sm">+18.4%</span> vs previous month
+          </p>
+</div>
+<!-- Sparkline visualization -->
+<div class="pt-2">
+<svg class="w-full h-8 text-primary-container" fill="none" preserveaspectratio="none" viewbox="0 0 100 24">
+<path d="M0 20 L15 17 L30 19 L45 13 L60 14 L75 8 L90 10 L100 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M0 20 L15 17 L30 19 L45 13 L60 14 L75 8 L90 10 L100 3 V24 H0 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+</div>
+<!-- Sessions Completed Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Sessions Completed</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-lg">ev_station</span>
+</div>
+</div>
+<div>
+<div class="font-data-display text-data-display font-bold text-primary">182</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Average 5.2 sessions / week</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+<!-- Total kWh Dispensed Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Power Dispensed</span>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">bolt</span>
+</div>
+</div>
+<div>
+<div class="font-data-display text-data-display font-bold text-primary">2,890 <span class="font-headline-sm text-headline-sm font-normal text-on-surface-variant">kWh</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">98.4% charging efficiency</p>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Domestic 16A: 1,420 kWh</span>
+<span>Type 2: 1,470 kWh</span>
+</div>
+</div>
+<!-- Net Domestic Power Bill Offset Card (Special Highlight) -->
+<div class="p-space-lg rounded-xl bg-primary text-on-primary shadow-sm flex flex-col justify-between space-y-space-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 text-white/5">
+<span class="material-symbols-outlined text-8xl">solar_power</span>
+</div>
+<div class="flex items-center justify-between z-10">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary-fixed-dim font-bold">Electricity Offset</span>
+<span class="px-2 py-0.5 rounded bg-primary-container text-primary-fixed font-label-sm text-label-sm font-bold">Optimal</span>
+</div>
+<div class="z-10">
+<div class="font-headline-md text-headline-md font-bold text-white leading-tight">100% Covered</div>
+<div class="font-headline-sm text-headline-sm text-secondary-fixed mt-1 font-bold">+₹18,400 Profit</div>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim z-10 leading-snug">
+          Hosting revenue completely paid your household electricity bill, leaving liquid surplus cash.
+        </p>
+</div>
+</div>
+<!-- Settlement Accounts & Tax Information Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg items-start">
+<!-- Account & Beneficiary Details (1 Col Desktop) -->
+<div class="lg:col-span-1 space-y-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary">Payout Methods</h2>
+<button class="font-label-md text-label-md text-secondary font-bold hover:underline">Manage</button>
+</div>
+<!-- Primary Active UPI VPA -->
+<div class="p-space-md rounded-lg bg-surface-container-low relative group">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Primary UPI
+              </span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">Verified</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-primary tracking-tight">suresh.narayanan@okaxis</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Instant real-time transfer via NPCI / Axis Bank</p>
+</div>
+<!-- Alternate Bank Account -->
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Alternate Settlement</span>
+<span class="material-symbols-outlined text-on-surface-variant text-base">account_balance</span>
+</div>
+<div class="font-label-lg text-label-lg text-primary font-bold">HDFC Bank Ltd</div>
+<p class="font-body-sm text-body-sm text-on-surface">Current A/c •••• 4091</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-mono">IFSC: HDFC0000053</p>
+</div>
+<!-- Tax Compliance Module -->
+<div class="p-space-md rounded-lg bg-surface-container space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">description</span>
+                PAN &amp; TDS Status
+              </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold">Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              TDS withheld at 1% under Sec 194C. Form 16A generated quarterly.
+            </p>
+<div class="pt-2 flex items-center gap-space-sm">
+<button class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">download</span> FY24 Q3 Form 16A
+              </button>
+</div>
+</div>
+</div>
+<!-- Tariff Advice Callout Card -->
+<div class="p-space-lg rounded-xl bg-tertiary-fixed text-on-tertiary-fixed shadow-sm space-y-space-sm relative">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">electric_meter</span>
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary font-bold">BESCOM Advisory</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">LT-6 EV Sub-meter Subsidy</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Residential solar and dedicated EV sub-meters are eligible for <strong class="text-primary font-bold">₹1.20/unit rebate</strong> under the Karnataka EV Policy.
+          </p>
+<div class="pt-2">
+<button class="w-full flex items-center justify-center gap-2 px-space-md py-2.5 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">support_agent</span>
+<span>Request ChargeMate Tech Assistance</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Detailed Payout History & Transaction Ledger (2 Cols Desktop) -->
+<div class="lg:col-span-2 space-y-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Payout History &amp; Settlements</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated daily disbursements straight to UPI VPA</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>Oct 2026</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-base">file_download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Transaction Ledger Items -->
+<div class="space-y-space-sm">
+<!-- Item 1: 24 Oct 2026 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">arrow_outward</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">₹468.00</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-label-sm text-label-sm font-bold">Settled</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex flex-wrap items-center gap-x-2 gap-y-0.5">
+<span>24 Oct 2026</span>
+<span>•</span>
+<span>3 rider sessions</span>
+<span>•</span>
+<span class="font-mono text-xs text-on-surface-variant">Ref #UPI-84910284</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-center">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface shadow-sm transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>Download Slip</span>
+</button>
+</div>
+</div>
+<!-- Item 2: 23 Oct 2026 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">arrow_outward</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">₹612.00</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-label-sm text-label-sm font-bold">Settled</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex flex-wrap items-center gap-x-2 gap-y-0.5">
+<span>23 Oct 2026</span>
+<span>•</span>
+<span>4 rider sessions</span>
+<span>•</span>
+<span class="font-mono text-xs text-on-surface-variant">Ref #UPI-84901923</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-center">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface shadow-sm transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>Download Slip</span>
+</button>
+</div>
+</div>
+<!-- Item 3: 22 Oct 2026 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">arrow_outward</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">₹310.00</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-label-sm text-label-sm font-bold">Settled</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex flex-wrap items-center gap-x-2 gap-y-0.5">
+<span>22 Oct 2026</span>
+<span>•</span>
+<span>2 rider sessions</span>
+<span>•</span>
+<span class="font-mono text-xs text-on-surface-variant">Ref #UPI-84883921</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-center">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface shadow-sm transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>Download Slip</span>
+</button>
+</div>
+</div>
+<!-- Item 4: 21 Oct 2026 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">arrow_outward</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">₹840.00</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-label-sm text-label-sm font-bold">Settled</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex flex-wrap items-center gap-x-2 gap-y-0.5">
+<span>21 Oct 2026</span>
+<span>•</span>
+<span>5 rider sessions</span>
+<span>•</span>
+<span class="font-mono text-xs text-on-surface-variant">Ref #UPI-84829104</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-center">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface shadow-sm transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>Download Slip</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination / View All Footer -->
+<div class="pt-space-sm flex items-center justify-between border-t border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing latest 4 of 68 historical disbursements</span>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center gap-1">
+<span>View Full Ledger</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Host Spot Hardware Status Inset -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Auto-Settlement Schedule Active</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Disbursements triggered at 06:00 IST for all completed sessions above ₹100.</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-mono bg-surface-container-lowest px-2 py-1 rounded">Next: 14h 22m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Modal / Notification Trigger script for microinteractions -->
+<script>
+    document.getElementById('instantPayoutBtn')?.addEventListener('click', function() {
+      const btn = this;
+      const originalHTML = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Initiating IMPS Transfer...</span>`;
+      
+      setTimeout(() => {
+        btn.classList.remove('bg-secondary-container', 'hover:bg-secondary');
+        btn.classList.add('bg-primary-fixed', 'text-on-primary-fixed');
+        btn.innerHTML = `<span class="material-symbols-outlined text-xl">check_circle</span><span>Transferred to suresh.narayanan@okaxis</span>`;
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.disabled = false;
+          btn.classList.add('bg-secondary-container', 'hover:bg-secondary');
+          btn.classList.remove('bg-primary-fixed', 'text-on-primary-fixed');
+        }, 3500);
+      }, 1200);
+    });
+  </script>
+</div></main></div></body></html>

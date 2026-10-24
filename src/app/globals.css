@@ -1,0 +1,135 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   ChargeMate Design Token System
+   Warm Tactile Infrastructure — single source of truth
+   ───────────────────────────────────────────── */
+@layer base {
+  :root {
+    /* ── Surface System (Warm Parchment) ── */
+    --background:          39 28% 94%;     /* #F4F1EA */
+    --recessed:            37 22% 89%;     /* #EAE6DC */
+    --surface-high:        37 16% 85%;     /* #E2DDD2 */
+    --card:                0 0% 100%;      /* #FFFFFF */
+    --card-foreground:     144 10% 10%;    /* #181C19 */
+    --popover:             0 0% 100%;
+    --popover-foreground:  144 10% 10%;
+
+    /* ── Text ── */
+    --foreground:          144 10% 10%;    /* #181C19 */
+    --muted-foreground:    150 5% 37%;     /* #5C635E */
+
+    /* ── Borders / Outlines ── */
+    --border:              37 14% 81%;     /* #D5D0C5 */
+    --input:               37 14% 81%;
+    --ring:                153 41% 13%;    /* forest green focus ring */
+
+    /* ── Brand: Forest Green (primary) ── */
+    --forest:              153 41% 13%;    /* #143122 */
+    --forest-foreground:   0 0% 100%;
+
+    /* ── Charge mode (Rider) — orange accent ── */
+    --charge:              18 90% 50%;     /* #F25A0E */
+    --charge-foreground:   0 0% 100%;
+    --charge-fixed:        20 100% 93%;    /* #FFECE0 peach tint */
+
+    /* ── Host mode — teal accent ── */
+    --host:                163 48% 20%;    /* #1A4D3E */
+    --host-foreground:     0 0% 100%;
+    --host-fixed:          148 36% 87%;    /* #C9EBD4 sage tint */
+
+    /* ── Ochre / Tertiary ── */
+    --ochre:               36 76% 46%;     /* #D49018 */
+    --ochre-foreground:    0 0% 100%;
+    --ochre-fixed:         42 95% 93%;     /* #FDF3DF cream gold */
+
+    /* ── Semantic ── */
+    --destructive:         0 70% 41%;      /* #ba1a1a */
+    --destructive-foreground: 0 0% 100%;
+    --success:             148 40% 35%;
+    --success-foreground:  0 0% 100%;
+
+    /* ── shadcn required aliases ── */
+    --primary:             153 41% 13%;    /* forest = primary */
+    --primary-foreground:  0 0% 100%;
+    --secondary:           37 22% 89%;     /* recessed */
+    --secondary-foreground: 144 10% 10%;
+    --muted:               37 22% 89%;
+    --accent:              37 16% 85%;
+    --accent-foreground:   144 10% 10%;
+
+    /* ── Radii ── */
+    --radius:              0.25rem;
+    --radius-sm:           0.125rem;
+    --radius-md:           0.375rem;
+    --radius-lg:           0.5rem;
+    --radius-xl:           0.75rem;
+    --radius-2xl:          1rem;
+    --radius-full:         9999px;
+
+    /* ── Fonts ── */
+    --font-heading:        var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
+    --font-body:           var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-sans:           var(--font-body);
+  }
+
+  /* No dark mode — ChargeMate is light-only per design */
+
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* ── Custom utilities ── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Tactile hard shadow — the signature stamp look */
+  .shadow-stamp {
+    box-shadow: 2px 3px 0px hsl(var(--forest));
+  }
+  .shadow-stamp-charge {
+    box-shadow: 2px 3px 0px hsl(var(--charge));
+  }
+  .shadow-stamp-ochre {
+    box-shadow: 2px 3px 0px hsl(var(--ochre));
+  }
+
+  /* Font families */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Recessed input look */
+  .surface-recessed {
+    background-color: hsl(var(--recessed));
+  }
+  .surface-card {
+    background-color: hsl(var(--card));
+  }
+}
